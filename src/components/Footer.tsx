@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, BookOpen, Mail } from 'lucide-react';
+import { Github, Linkedin, BookOpen, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,14 +9,14 @@ const Footer = () => {
         <div className="flex flex-col items-center text-center space-y-6">
           {/* Quote */}
           <blockquote className="text-lg md:text-xl text-muted-foreground italic max-w-2xl">
-            "The good thing about science is that it's true whether or not you believe in it."
-            <span className="block text-sm mt-2 not-italic text-primary">— Neil deGrasse Tyson</span>
+            "Nothing in life should be feared, only understood. Now is the time to understand more so that we fear less."
+            <span className="block text-sm mt-2 not-italic text-primary">— Marie Curie</span>
           </blockquote>
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/BrunoFOmena"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-primary transition-colors"
@@ -25,16 +25,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/bruno-feliciano-48441a289/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-primary transition-colors"
@@ -43,16 +34,16 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://scholar.google.com"
+              href="http://lattes.cnpq.br/0056633694483546"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Google Scholar"
+              aria-label="Lattes"
             >
               <BookOpen className="w-5 h-5" />
             </a>
             <a
-              href="mailto:hello@example.com"
+              href="mailto:brunofelicianodeomena@gmail.com"
               className="p-2 text-muted-foreground hover:text-primary transition-colors"
               aria-label="Email"
             >
@@ -62,7 +53,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Bruno Feliciano de Omena. All rights reserved.
           </p>
         </div>
       </div>

@@ -7,44 +7,44 @@ interface Project {
   title: string;
   description: string;
   tags: string[];
+  link?: string;
 }
 
 const projects: Project[] = [
   {
-    icon: Dna,
-    title: 'GenomicsKit',
-    description: 'A comprehensive Python library for genomic data analysis with support for multiple file formats and parallel processing.',
-    tags: ['Python', 'Bioinformatics'],
-  },
-  {
-    icon: Brain,
-    title: 'DeepCell Classifier',
-    description: 'Deep learning model for automated cell type classification from single-cell RNA-seq data using transformer architecture.',
-    tags: ['PyTorch', 'Machine Learning'],
-  },
-  {
-    icon: Database,
-    title: 'BioDataHub',
-    description: 'Full-stack web application for managing and sharing biological datasets with real-time collaboration features.',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-  },
-  {
     icon: BarChart3,
-    title: 'VisOmics',
-    description: 'Interactive visualization dashboard for multi-omics data exploration with customizable plots and statistical analysis.',
-    tags: ['D3.js', 'R Shiny'],
+    title: 'Transcriptomic Analysis Tool',
+    description: 'Shiny app to facilitate the creation of figures and understanding of differentially expressed genes data. Uses outputs from Limma and DESeq2 for comprehensive transcriptomic analysis.',
+    tags: ['R', 'Shiny', 'Bioinformatics'],
+    link: 'https://github.com/BrunoFOmena/Ferramenta-de-An-lise-Transcript-mica',
   },
   {
     icon: GitBranch,
-    title: 'Pipeline Builder',
-    description: 'Workflow management system for creating reproducible bioinformatics pipelines with containerization support.',
-    tags: ['Nextflow', 'Docker'],
+    title: 'Genomic Vigilance Pipeline',
+    description: 'Automated Snakemake-based bioinformatics pipeline for identifying viral pathogens in clinical metagenomic samples. Processes NGS data through quality control, host DNA depletion, and de novo assembly to generate viral contigs.',
+    tags: ['Snakemake', 'Python', 'Bioinformatics'],
+    link: 'https://github.com/BrunoFOmena/Pipeline-Genomic-Vigilance---Snakemake',
   },
   {
-    icon: Code2,
-    title: 'ProteinFold API',
-    description: 'RESTful API service for protein structure prediction and molecular dynamics simulations in the cloud.',
-    tags: ['FastAPI', 'AWS'],
+    icon: Dna,
+    title: 'Salmonella Transcriptomic Analysis',
+    description: 'Automated Nextflow pipeline for transcriptomic analysis of Salmonella Typhimurium (wt vs. ∆yhdJ). Processes RNA-seq data to identify differentially expressed genes and understand bacterial gene regulation.',
+    tags: ['Nextflow', 'RNA-seq', 'Bioinformatics'],
+    link: 'https://github.com/BrunoFOmena/Salmonella-Typhimurium-wt-vs.-yhdJ---nextflow',
+  },
+  {
+    icon: Brain,
+    title: 'TCGA-GBM Gene Expression Analysis',
+    description: 'Preprocessing pipeline for TCGA-GBM gene expression data. Downloads, normalizes, and filters RNA-seq data from glioblastoma samples, focusing on key genes (EGFR, TP53, IDH1, MGMT) for biomarker identification.',
+    tags: ['R', 'TCGA', 'Bioinformatics'],
+    link: 'https://github.com/BrunoFOmena/tcga-gbm-gene-expression-analysis',
+  },
+  {
+    icon: Dna,
+    title: 'ONCOGEN 2022 Course',
+    description: 'Genomic analysis pipeline from ONCOGEN 2022 course on precision medicine bioinformatics. Includes sequence alignment, variant calling (SNPs and INDELs), and variant annotation using BWA, Samtools, bcftools, and SnpEff.',
+    tags: ['BWA', 'Samtools', 'Bioinformatics'],
+    link: 'https://github.com/BrunoFOmena/Curso_Oncogene',
   },
 ];
 
@@ -62,11 +62,8 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
-            return (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-xl p-6 card-hover group cursor-pointer"
-              >
+            const cardContent = (
+              <>
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                   <IconComponent className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                 </div>
@@ -86,6 +83,25 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+              </>
+            );
+
+            return project.link ? (
+              <a
+                key={index}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-card border border-border rounded-xl p-6 card-hover group cursor-pointer block"
+              >
+                {cardContent}
+              </a>
+            ) : (
+              <div
+                key={index}
+                className="bg-card border border-border rounded-xl p-6 card-hover group cursor-pointer"
+              >
+                {cardContent}
               </div>
             );
           })}

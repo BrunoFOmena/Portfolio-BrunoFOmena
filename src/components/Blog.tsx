@@ -1,6 +1,8 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Link } from 'react-router-dom';
 
 interface BlogPost {
+  id: string;
   category: string;
   title: string;
   excerpt: string;
@@ -9,28 +11,11 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
-    category: 'Tutorial',
-    title: 'Getting Started with Single-Cell Analysis in Python',
-    excerpt: 'A comprehensive guide to analyzing single-cell RNA-seq data using Scanpy and AnnData, from raw counts to publication-ready figures.',
-    date: 'Dec 15, 2024',
-  },
-  {
-    category: 'Research',
-    title: 'The Future of Spatial Transcriptomics',
-    excerpt: 'Exploring emerging technologies and computational methods that are revolutionizing our understanding of tissue architecture.',
-    date: 'Nov 28, 2024',
-  },
-  {
-    category: 'Opinion',
-    title: 'Why Open Science Matters in Computational Biology',
-    excerpt: 'Reflections on the importance of reproducibility, code sharing, and collaborative research in modern science.',
-    date: 'Nov 10, 2024',
-  },
-  {
+    id: 'alzheimer-cnn-neuroimaging',
     category: 'Conference',
-    title: 'Highlights from ISMB 2024',
-    excerpt: 'Key takeaways and exciting developments from the International Conference on Intelligent Systems for Molecular Biology.',
-    date: 'Oct 22, 2024',
+    title: 'Integration of Convolutional Neural Networks and Neuroimaging in Early Diagnosis of Alzheimer\'s Disease',
+    excerpt: 'Systematic review on the use of CNNs in neuroimaging analysis (MRI and PET) for early diagnosis of Alzheimer\'s Disease, following PRISMA guidelines.',
+    date: '2024',
   },
 ];
 
@@ -43,14 +28,14 @@ const Blog = () => {
         ref={ref}
         className={`section-container fade-in-section ${isVisible ? 'is-visible' : ''}`}
       >
-        <h2 className="section-title">Blog & Thoughts</h2>
+        <h2 className="section-title">Thoughts</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {blogPosts.map((post, index) => (
-            <a
+            <Link
               key={index}
-              href="#"
-              className="bg-card border border-border rounded-xl p-6 card-hover group"
+              to={`/thoughts/${post.id}`}
+              className="bg-card border border-border rounded-xl p-6 card-hover group block"
             >
               <div className="flex items-center gap-3 mb-3">
                 <span className="px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full">
@@ -64,7 +49,7 @@ const Blog = () => {
               <p className="text-muted-foreground text-sm leading-relaxed">
                 {post.excerpt}
               </p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

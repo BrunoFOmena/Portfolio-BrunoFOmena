@@ -6,7 +6,7 @@ const navLinks = [
   { href: '#resume', label: 'Resume' },
   { href: '#publications', label: 'Publications' },
   { href: '#projects', label: 'Projects' },
-  { href: '#blog', label: 'Blog' },
+  { href: '#blog', label: 'Thoughts' },
 ];
 
 const Navigation = () => {
@@ -34,7 +34,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
-            YN
+            BF
           </a>
 
           {/* Desktop Navigation */}
