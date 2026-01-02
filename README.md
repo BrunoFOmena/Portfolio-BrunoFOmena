@@ -28,10 +28,10 @@ This project is built with:
 
 ```bash
 # Clone the repository
-git clone https://github.com/BrunoFOmena/academic-portfolio-hub.git
+git clone https://github.com/BrunoFOmena/Portfolio-BrunoFOmena.git
 
 # Navigate to the project directory
-cd academic-portfolio-hub
+cd Portfolio-BrunoFOmena
 
 # Install dependencies
 npm install
@@ -52,9 +52,15 @@ The production build will be in the `dist` directory.
 
 ## Deployment
 
-This project is deployed on [Vercel](https://vercel.com). The site is automatically deployed when changes are pushed to the main branch.
+This project is deployed on [GitHub Pages](https://pages.github.com/). To deploy updates, run:
 
-**Live Site**: https://portfolio-snowy-psi-62.vercel.app
+```bash
+npm run deploy
+```
+
+This will build the project and publish it to the `gh-pages` branch, which automatically updates the live site.
+
+**Live Site**: https://brunofomena.github.io/Portfolio-BrunoFOmena/
 
 ## License
 
